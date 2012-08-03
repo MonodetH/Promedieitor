@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  promedieitor.py
+#  promedieitor.pyw
 #
 
 from PyQt4 import QtCore, QtGui

@@ -25,7 +25,12 @@
 from PyQt4 import QtCore, QtGui
 import sys
 from mainwindow import Ui_MainWindow
+from agregarEval import Ui_Dialog
 
+class popEval(QtGui.QMainWindow)
+	def __init__(self):
+		
+	
 # Se hereda de la clase QtGui.QMainWindow
 class Principal(QtGui.QMainWindow):
 	# Se define el constructor de la clase __init__
@@ -35,7 +40,6 @@ class Principal(QtGui.QMainWindow):
         # Se crea la instancia de Ui_MainWindow
         self.ventana = Ui_MainWindow()
         self.ventana.setupUi(self)
-
 
 def main():
 	app = QtGui.QApplication(sys.argv)

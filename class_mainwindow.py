@@ -5,7 +5,7 @@
 #
 
 from PyQt4 import QtCore, QtGui
-from PyQt4.QtCore import SIGNAL, SLOT
+from PyQt4.QtCore import SIGNAL, SLOT, pyqtSlot
 import sys
 from ui_mainwindow import Ui_MainWindow
 from class_agregarEval import *
@@ -19,7 +19,15 @@ class Principal(QtGui.QMainWindow):
         # Se crea la instancia de Ui_MainWindow
         self.ventana = Ui_MainWindow()
         self.ventana.setupUi(self)
-        self.popEval = PopEval()
-        self.ventana.pushButton.connect(self.ventana.pushButton, SIGNAL("clicked()"),self.popEval, SLOT("show()"))
-    
+        
+        self.ventana.pushButton.connect(self.ventana.pushButton, SIGNAL("clicked()"),self, SLOT("addEval()"))
+        
+    @pyqtSlot()
+    def addEval(self):
+		self.popEval = PopEval()
+		r = self.popEval.exec_()
+		print r
+		if r:
+			print self.popEval.ventana.spinBox.value()
+		
     

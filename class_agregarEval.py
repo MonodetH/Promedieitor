@@ -5,6 +5,7 @@
 #
 
 from PyQt4 import QtCore, QtGui
+from PyQt4.QtCore import SIGNAL, SLOT, pyqtSlot
 import sys
 from ui_agregarEval import Ui_Dialog
 
@@ -17,3 +18,7 @@ class PopEval(QtGui.QDialog):
         # Se crea la instancia de Ui_Dialog
         self.ventana = Ui_Dialog()
         self.ventana.setupUi(self)
+        
+        self.ventana.buttonBox.connect(self.ventana.buttonBox, SIGNAL("accepted()"),self, SLOT("accept()"))
+        self.ventana.buttonBox.connect(self.ventana.buttonBox, SIGNAL("rejected()"),self, SLOT("reject()"))
+

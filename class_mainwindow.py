@@ -41,7 +41,10 @@ class Principal(QtGui.QMainWindow):
 			param = [x.strip() for x in str(row[1]).split(',')]
 			retorno = 0
 			for x in param:
-				retorno += self.generar(x)
+				if x[0] == '-':
+					retorno -= self.generar(x[1:])
+				else:
+					retorno += self.generar(x)
 			nota = float(row[2])*retorno
 			ubica = self.model2.ubicaNombre(nombre)
 			self.model2.setValor(ubica, nota)

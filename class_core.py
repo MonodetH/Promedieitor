@@ -3,12 +3,12 @@ import sys
 
 class TableModel(QtCore.QAbstractTableModel):
 	
-	def __init__(self, colors = [[]], parent = None):
+	def __init__(self, datos = [[]], parent = None):
 		QtCore.QAbstractTableModel.__init__(self, parent)
-		self.__datos = colors
+		self.__datos = datos
 		self.__headers = ["Nombre", "Nota"]
 
-	def rowCount(self, parent):
+	def rowCount(self, parent = None):
 		return len(self.__datos)
 
 	def columnCount(self, parent):

@@ -10,6 +10,7 @@ import sys
 from ui_mainwindow import Ui_MainWindow
 from class_agregarEval import *
 from class_agregarVar import *
+from class_core import *
 
 # Se hereda de la clase QtGui.QMainWindow
 class Principal(QtGui.QMainWindow):
@@ -21,20 +22,27 @@ class Principal(QtGui.QMainWindow):
 		self.ventana = Ui_MainWindow()
 		self.ventana.setupUi(self)
         
+		self.model1 = TableModel([["EDITAME","0"]])
+		self.ventana.tableView.setModel(self.model1)
+        
 		self.ventana.pushButton.connect(self.ventana.pushButton, SIGNAL("clicked()"),self, SLOT("addEval()"))
 		self.ventana.pushButton_2.connect(self.ventana.pushButton_2, SIGNAL("clicked()"),self, SLOT("addVar()"))
+		self.ventana.pushButton_3.connect(self.ventana.pushButton_3, SIGNAL("clicked()"),self, SLOT("reset()"))
 		
 	@pyqtSlot()
 	def addEval(self):
 		self.popEval = PopEval()
 		r = self.popEval.exec_()
-		print r
 		if r:
-			print "Eval: " + self.popEval.ventana.lineEdit.text() + "\nNota: " + str(self.popEval.ventana.spinBox.value())
+			self.model1.insertRow(self.model1.rowCount(),self.popEval.ventana.lineEdit.text(),str(self.popEval.ventana.spinBox.value()))
 		
 	@pyqtSlot()
 	def addVar(self):
 		self.popVar = PopVar()
 		r = self.popVar.exec_()
 		print r
-
+		
+	@pyqtSlot()
+	def reset(self):
+		self.model1 = TableModel([["EDITAME","0"]])
+		self.ventana.tableView.setModel(self.model1)

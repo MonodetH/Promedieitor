@@ -37,6 +37,8 @@ class Principal(QtGui.QMainWindow):
 		row = self.model2.getVar(nombre)
 		if row == 0:
 			return self.model1.getNota(nombre)
+		elif row[0] == "BASE":
+			return self.model2.getNota(nombre)
 		elif row[0] == "SUMA":
 			param = [x.strip() for x in str(row[1]).split(',')]
 			retorno = 0
@@ -61,6 +63,19 @@ class Principal(QtGui.QMainWindow):
 			ubica = self.model2.ubicaNombre(nombre)
 			self.model2.setValor(ubica, nota)
 			return nota
+		elif row[0] == "PROMEDIO":
+			param = [x.strip() for x in str(row[1]).split(',')]
+			retorno = 0
+			for x in param:
+				if x[0] == '-':
+					retorno -= self.generar(x[1:])
+				else:
+					retorno += self.generar(x)
+			nota = float(row[2])*retorno/float(len(param))
+			ubica = self.model2.ubicaNombre(nombre)
+			self.model2.setValor(ubica, nota)
+			return nota
+		
 	
 	@pyqtSlot()
 	def addEval(self):

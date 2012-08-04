@@ -136,6 +136,13 @@ class VarTableModel(QtCore.QAbstractTableModel):
 				return [row[2],row[3],row[4]]
 		return 0
 	
+	def getNota(self, nombre):
+		for i in range(self.rowCount()):
+			row = self.__datos[i]
+			if row[0] == nombre:
+				return row[1]
+		return 0
+	
 	def ubicaNombre(self, nombre):
 		for i in range(self.rowCount()):
 			row = self.__datos[i]

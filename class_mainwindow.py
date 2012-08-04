@@ -49,7 +49,18 @@ class Principal(QtGui.QMainWindow):
 			ubica = self.model2.ubicaNombre(nombre)
 			self.model2.setValor(ubica, nota)
 			return nota
-			
+		elif row[0] == "PRODUCTO":
+			param = [x.strip() for x in str(row[1]).split(',')]
+			retorno = 1
+			for x in param:
+				if x[0] == '-':
+					retorno = -retorno * self.generar(x[1:])
+				else:
+					retorno *= self.generar(x)
+			nota = float(row[2])*retorno
+			ubica = self.model2.ubicaNombre(nombre)
+			self.model2.setValor(ubica, nota)
+			return nota
 	
 	@pyqtSlot()
 	def addEval(self):

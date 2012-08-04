@@ -1,45 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <class>AgreEval</class>
+ <widget class="QDialog" name="AgreEval">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>385</width>
-    <height>70</height>
+    <width>271</width>
+    <height>101</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Agregar Evaluación</string>
   </property>
-  <widget class="QTextEdit" name="textEdit">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>30</y>
-     <width>131</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>121</width>
+     <width>151</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Nombre de evaluacion</string>
+    <string>Nombre de evaluación</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>190</x>
      <y>10</y>
      <width>46</width>
      <height>13</height>
@@ -52,8 +42,8 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>30</y>
+     <x>100</x>
+     <y>70</y>
      <width>156</width>
      <height>23</height>
     </rect>
@@ -65,10 +55,10 @@
   <widget class="QSpinBox" name="spinBox">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>190</x>
      <y>30</y>
-     <width>42</width>
-     <height>22</height>
+     <width>71</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="minimum">
@@ -76,6 +66,16 @@
    </property>
    <property name="maximum">
     <number>100</number>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>151</width>
+     <height>21</height>
+    </rect>
    </property>
   </widget>
  </widget>

@@ -37,7 +37,7 @@ class Principal(QtGui.QMainWindow):
 		row = self.model2.getVar(nombre)
 		if row == 0:
 			return self.model1.getNota(nombre)
-		elif row[0] == "BASE":
+		elif row[0] == "CONSTANTE":
 			return self.model2.getNota(nombre)
 		elif row[0] == "SUMA":
 			param = [x.strip() for x in str(row[1]).split(',')]

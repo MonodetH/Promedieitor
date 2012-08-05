@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Sat Aug  4 03:32:34 2012
+# Created: Sat Aug  4 23:33:44 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(464, 556)
+        MainWindow.resize(457, 556)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -49,7 +49,7 @@ class Ui_MainWindow(object):
         self.tableView.setMinimumSize(QtCore.QSize(0, 0))
         self.tableView.setSizeIncrement(QtCore.QSize(0, 0))
         self.tableView.setObjectName(_fromUtf8("tableView"))
-        self.gridLayout.addWidget(self.tableView, 0, 0, 1, 2)
+        self.gridLayout.addWidget(self.tableView, 0, 0, 1, 3)
         self.verticalLayout = QtGui.QVBoxLayout()
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         spacerItem = QtGui.QSpacerItem(166, 10, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
@@ -68,15 +68,21 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.pushButton_3)
         spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem1)
-        self.gridLayout.addLayout(self.verticalLayout, 0, 2, 1, 1)
+        self.gridLayout.addLayout(self.verticalLayout, 0, 3, 1, 1)
         spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem2, 3, 1, 1, 1)
+        self.gridLayout.addItem(spacerItem2, 3, 2, 1, 1)
         self.tableView_2 = QtGui.QTableView(self.gridLayoutWidget)
         self.tableView_2.setObjectName(_fromUtf8("tableView_2"))
-        self.gridLayout.addWidget(self.tableView_2, 4, 0, 1, 3)
+        self.gridLayout.addWidget(self.tableView_2, 4, 0, 1, 4)
+        self.toolButton = QtGui.QToolButton(self.gridLayoutWidget)
+        self.toolButton.setObjectName(_fromUtf8("toolButton"))
+        self.gridLayout.addWidget(self.toolButton, 3, 1, 1, 1)
+        self.toolButton_2 = QtGui.QToolButton(self.gridLayoutWidget)
+        self.toolButton_2.setObjectName(_fromUtf8("toolButton_2"))
+        self.gridLayout.addWidget(self.toolButton_2, 15, 1, 1, 1)
         MainWindow.setCentralWidget(self.centralWidget)
         self.menuBar = QtGui.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 464, 25))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 457, 21))
         self.menuBar.setObjectName(_fromUtf8("menuBar"))
         MainWindow.setMenuBar(self.menuBar)
         self.mainToolBar = QtGui.QToolBar(MainWindow)
@@ -92,4 +98,8 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(QtGui.QApplication.translate("MainWindow", "Agregar Variable", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton_4.setText(QtGui.QApplication.translate("MainWindow", "Promedio", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton_3.setText(QtGui.QApplication.translate("MainWindow", "Reset", None, QtGui.QApplication.UnicodeUTF8))
+        self.toolButton.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p>No olvidar EDITAR</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.toolButton.setText(QtGui.QApplication.translate("MainWindow", "?", None, QtGui.QApplication.UnicodeUTF8))
+        self.toolButton_2.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p>No olvidar EDITAR</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.toolButton_2.setText(QtGui.QApplication.translate("MainWindow", "?", None, QtGui.QApplication.UnicodeUTF8))
 

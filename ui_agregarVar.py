@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'agregarVar.ui'
 #
-# Created: Sun Aug  5 00:16:06 2012
+# Created: Sun Aug  5 01:06:49 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -40,6 +40,7 @@ class Ui_AgreVar(object):
         self.pondVar.setEnabled(True)
         self.pondVar.setGeometry(QtCore.QRect(10, 80, 111, 22))
         self.pondVar.setMinimum(0.0)
+        self.pondVar.setProperty("value", 1.0)
         self.pondVar.setObjectName(_fromUtf8("pondVar"))
         self.label_3 = QtGui.QLabel(AgreVar)
         self.label_3.setEnabled(True)

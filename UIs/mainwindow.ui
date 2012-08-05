@@ -59,28 +59,6 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0" colspan="3">
-      <widget class="QTableView" name="tableView">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="sizeIncrement">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="3">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
@@ -90,7 +68,7 @@
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>166</width>
+           <width>180</width>
            <height>10</height>
           </size>
          </property>
@@ -144,14 +122,21 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
+         <width>74</width>
          <height>20</height>
         </size>
        </property>
       </spacer>
      </item>
      <item row="4" column="0" colspan="4">
-      <widget class="QTableView" name="tableView_2"/>
+      <widget class="QTableView" name="tableView_2">
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+      </widget>
      </item>
      <item row="3" column="1">
       <widget class="QToolButton" name="toolButton">
@@ -173,20 +158,96 @@
        </property>
       </widget>
      </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QTableView" name="tableView">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>105</number>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>457</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <widget class="QMenu" name="menuAbout">
+     <property name="title">
+      <string>Manual</string>
+     </property>
+     <widget class="QMenu" name="menuVariables">
+      <property name="title">
+       <string>Variables</string>
+      </property>
+      <widget class="QMenu" name="menuTipos">
+       <property name="title">
+        <string>Tipos</string>
+       </property>
+       <addaction name="actionGeneral_4"/>
+       <addaction name="separator"/>
+       <addaction name="actionCONSTANTE"/>
+       <addaction name="actionSUMA"/>
+       <addaction name="actionPRODUCTO"/>
+       <addaction name="actionPROMEDIO"/>
+       <addaction name="actionCONDICION"/>
+      </widget>
+      <addaction name="actionGeneral_3"/>
+      <addaction name="separator"/>
+      <addaction name="actionPonderaci_n"/>
+      <addaction name="menuTipos"/>
+     </widget>
+     <addaction name="actionGeneral_2"/>
+     <addaction name="separator"/>
+     <addaction name="actionEvaluaciones_2"/>
+     <addaction name="menuVariables"/>
+    </widget>
+    <addaction name="menuAbout"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout_2"/>
+   </widget>
+   <addaction name="menuAyuda"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
@@ -194,6 +255,76 @@
     <bool>false</bool>
    </attribute>
   </widget>
+  <action name="actionGeneral">
+   <property name="text">
+    <string>General</string>
+   </property>
+  </action>
+  <action name="actionGenera">
+   <property name="text">
+    <string>Variables</string>
+   </property>
+  </action>
+  <action name="actionEvaluaciones">
+   <property name="text">
+    <string>Evaluaciones</string>
+   </property>
+  </action>
+  <action name="actionGeneral_2">
+   <property name="text">
+    <string>General</string>
+   </property>
+  </action>
+  <action name="actionEvaluaciones_2">
+   <property name="text">
+    <string>Evaluaciones</string>
+   </property>
+  </action>
+  <action name="actionAbout_2">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionGeneral_3">
+   <property name="text">
+    <string>General</string>
+   </property>
+  </action>
+  <action name="actionPonderaci_n">
+   <property name="text">
+    <string>Ponderación</string>
+   </property>
+  </action>
+  <action name="actionGeneral_4">
+   <property name="text">
+    <string>General</string>
+   </property>
+  </action>
+  <action name="actionCONSTANTE">
+   <property name="text">
+    <string>CONSTANTE</string>
+   </property>
+  </action>
+  <action name="actionSUMA">
+   <property name="text">
+    <string>SUMA</string>
+   </property>
+  </action>
+  <action name="actionPRODUCTO">
+   <property name="text">
+    <string>PRODUCTO</string>
+   </property>
+  </action>
+  <action name="actionPROMEDIO">
+   <property name="text">
+    <string>PROMEDIO</string>
+   </property>
+  </action>
+  <action name="actionCONDICION">
+   <property name="text">
+    <string>CONDICION</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

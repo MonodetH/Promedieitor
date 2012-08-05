@@ -75,20 +75,34 @@ class Principal(QtGui.QMainWindow):
 			ubica = self.model2.ubicaNombre(nombre)
 			self.model2.setValor(ubica, nota)
 			return nota
-		
+		"""
+		elif row[0] == "CONDICIONAL":
+			param = [x.strip() for x in str(row[1]).split(';')]
+			for i in range(len(param)):
+				param[i] = [x.strip() for x in str(param[i]).split(':')]
+				param[i][0] = [x.strip() for x in str(param[i][0]).split(',')]
+				for j in range(len(param[i][0])):
+					param[i][0][j] = [x.strip() for x in str(param[i][0][j]).split(' ')]
+			print param
+		"""	
+	
 	
 	@pyqtSlot()
 	def addEval(self):
 		self.popEval = PopEval()
 		r = self.popEval.exec_()
 		if r:
-			self.model1.insertRow(self.model1.rowCount(),[self.popEval.ventana.lineEdit.text(),str(self.popEval.ventana.spinBox.value())])
+			self.model1.insertRow(self.model1.rowCount(),[self.popEval.ventana.lineEdit.text(),\
+			str(self.popEval.ventana.spinBox.value())])
 		
 	@pyqtSlot()
 	def addVar(self):
 		self.popVar = PopVar()
 		r = self.popVar.exec_()
-		print r
+		if r:
+			ruta = self.popVar.ventana
+			self.model2.insertRow(self.model2.rowCount(),[ruta.nomVar.text(),str(ruta.valorVar.value()),\
+			ruta.comboBox.currentText(),ruta.parVar.toPlainText(),str(ruta.pondVar.value())])
 		
 	@pyqtSlot()
 	def resetAll(self):

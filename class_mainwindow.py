@@ -6,7 +6,7 @@
 
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import SIGNAL, SLOT, pyqtSlot
-import sys
+import sys, re
 from ui_mainwindow import Ui_MainWindow
 from class_agregarEval import *
 from class_agregarVar import *
@@ -25,7 +25,7 @@ class Principal(QtGui.QMainWindow):
 		self.model1 = EvalTableModel([["EDITAME","0"]])
 		self.ventana.tableView.setModel(self.model1)
 
-		self.model2 = VarTableModel([["NF","0","SUMA","EDITAME","1.0"]])
+		self.model2 = VarTableModel([["NF","0","ALGEBRAICA","EDITAME","1.0"]])
 		self.ventana.tableView_2.setModel(self.model2)
 
 		self.ventana.pushButton.connect(self.ventana.pushButton, SIGNAL("clicked()"),self, SLOT("addEval()"))
@@ -36,33 +36,48 @@ class Principal(QtGui.QMainWindow):
 	def generar(self,nombre):
 		row = self.model2.getVar(nombre)
 		if row == 0:
-			return self.model1.getNota(nombre)
-		elif row[0] == "CONSTANTE":
-			return self.model2.getNota(nombre)
-		elif row[0] == "SUMA":
-			param = [x.strip() for x in str(row[1]).split(',')]
+			if re.match("[0-9]", nombre):
+				return float(nombre)
+			else:
+				return self.model1.getNota(nombre)
+		elif row[0] == "ALGEBRAICA":
+			flag = False
+			if row[1][0] == '-':
+				row[1] = row[1][1:]
+				flag = True
+			param = [x.strip() for x in str(row[1]).split('-')]
+			for i in range(len(param)):
+				param[i] = [x.strip() for x in str(param[i]).split('+')]
+				for j in range(len(param[i])):
+					param[i][j] = [x.strip() for x in str(param[i][j]).split('/')]
+					for k in range(len(param[i][j])):
+						param[i][j][k] = [x.strip() for x in str(param[i][j][k]).split('*')]
 			retorno = 0
-			for x in param:
-				if x[0] == '-':
-					retorno -= self.generar(x[1:])
+			for i in range(len(param)):
+				aux1 = 0
+				for j in range(len(param[i])):
+					aux2 = 1
+					for k in range(len(param[i][j])):
+						aux3 = 1
+						for n in range(len(param[i][j][k])):
+							aux3 *= self.generar(param[i][j][k][n])
+						if k == 0:
+							aux2 *= aux3
+						else:
+							aux2 /= aux3
+					aux1 += aux2
+				if i == 0:
+					if flag:
+						retorno -= aux1
+					else:	
+						retorno += aux1
 				else:
-					retorno += self.generar(x)
+					retorno -= aux1
 			nota = float(row[2])*retorno
 			ubica = self.model2.ubicaNombre(nombre)
 			self.model2.setValor(ubica, nota)
 			return nota
-		elif row[0] == "PRODUCTO":
-			param = [x.strip() for x in str(row[1]).split(',')]
-			retorno = 1
-			for x in param:
-				if x[0] == '-':
-					retorno = -retorno * self.generar(x[1:])
-				else:
-					retorno *= self.generar(x)
-			nota = float(row[2])*retorno
-			ubica = self.model2.ubicaNombre(nombre)
-			self.model2.setValor(ubica, nota)
-			return nota
+
 		elif row[0] == "PROMEDIO":
 			param = [x.strip() for x in str(row[1]).split(',')]
 			retorno = 0
@@ -75,16 +90,84 @@ class Principal(QtGui.QMainWindow):
 			ubica = self.model2.ubicaNombre(nombre)
 			self.model2.setValor(ubica, nota)
 			return nota
-		"""
+			
 		elif row[0] == "CONDICIONAL":
 			param = [x.strip() for x in str(row[1]).split(';')]
-			for i in range(len(param)):
-				param[i] = [x.strip() for x in str(param[i]).split(':')]
-				param[i][0] = [x.strip() for x in str(param[i][0]).split(',')]
-				for j in range(len(param[i][0])):
-					param[i][0][j] = [x.strip() for x in str(param[i][0][j]).split(' ')]
-			print param
-		"""	
+			cond = [x.strip() for x in str(param[0]).split(',')]
+			defecto = 0
+			if len(param) == 2:
+				defecto = self.generar(param[1])
+			var = self.generar(cond[0])
+			cond = cond[1:]
+			
+			for i in range(len(cond)):
+				cond[i] = [x.strip() for x in str(cond[i]).split(':')]
+				cond[i][0] = [x.strip() for x in str(cond[i][0]).split('&')]
+				for j in range(len(cond[i][0])):
+					cond[i][0][j] = [x.strip() for x in str(cond[i][0][j]).split(' ')]
+			
+			for i in range(len(cond)):
+				flag = len(cond[i][0])
+				for j in range(len(cond[i][0])):
+					if cond[i][0][j][0] == '>':
+						if var > self.generar(cond[i][0][j][1]):
+							flag -= 1
+							if flag == 0:
+								retorno = self.generar(cond[i][1])
+								nota = float(row[2])*retorno
+								ubica = self.model2.ubicaNombre(nombre)
+								self.model2.setValor(ubica, nota)
+								return nota
+					elif cond[i][0][j][0] == '>=':
+						if var >= self.generar(cond[i][0][j][1]):
+							flag -= 1
+							if flag == 0:
+								retorno = self.generar(cond[i][1])
+								nota = float(row[2])*retorno
+								ubica = self.model2.ubicaNombre(nombre)
+								self.model2.setValor(ubica, nota)
+								return nota
+					elif cond[i][0][j][0] == '<':
+						if var < self.generar(cond[i][0][j][1]):
+							flag -= 1
+							if flag == 0:
+								retorno = self.generar(cond[i][1])
+								nota = float(row[2])*retorno
+								ubica = self.model2.ubicaNombre(nombre)
+								self.model2.setValor(ubica, nota)
+								return nota
+					elif cond[i][0][j][0] == '<=':
+						if var <= self.generar(cond[i][0][j][1]):
+							flag -= 1
+							if flag == 0:
+								retorno = self.generar(cond[i][1])
+								nota = float(row[2])*retorno
+								ubica = self.model2.ubicaNombre(nombre)
+								self.model2.setValor(ubica, nota)
+								return nota
+					elif cond[i][0][j][0] == '=' or cond[i][0][0][0] == '==':
+						if var == self.generar(cond[i][0][j][1]):
+							flag -= 1
+							if flag == 0:
+								retorno = self.generar(cond[i][1])
+								nota = float(row[2])*retorno
+								ubica = self.model2.ubicaNombre(nombre)
+								self.model2.setValor(ubica, nota)
+								return nota
+					elif cond[i][0][j][0] == '!=':
+						if var != self.generar(cond[i][0][j][1]):
+							flag -= 1
+							if flag == 0:
+								retorno = self.generar(cond[i][1])
+								nota = float(row[2])*retorno
+								ubica = self.model2.ubicaNombre(nombre)
+								self.model2.setValor(ubica, nota)
+								return nota
+			
+			nota = float(row[2])*defecto
+			ubica = self.model2.ubicaNombre(nombre)
+			self.model2.setValor(ubica, nota)
+			return nota
 	
 	
 	@pyqtSlot()
@@ -101,7 +184,7 @@ class Principal(QtGui.QMainWindow):
 		r = self.popVar.exec_()
 		if r:
 			ruta = self.popVar.ventana
-			self.model2.insertRow(self.model2.rowCount(),[ruta.nomVar.text(),str(ruta.valorVar.value()),\
+			self.model2.insertRow(self.model2.rowCount(),[ruta.nomVar.text(),"0",\
 			ruta.comboBox.currentText(),ruta.parVar.toPlainText(),str(ruta.pondVar.value())])
 		
 	@pyqtSlot()
@@ -117,9 +200,3 @@ class Principal(QtGui.QMainWindow):
 		self.generar("NF")
 		self.ventana.tableView_2.setModel(self.model2)
 	
-
-
-
-
-
-		

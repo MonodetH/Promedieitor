@@ -114,8 +114,9 @@ class VarTableModel(QtCore.QAbstractTableModel):
 
 	def setValor(self, row, value, role = QtCore.Qt.EditRole):
 		if role == QtCore.Qt.EditRole:
-			color = value
-			self.__datos[row][1] = str(color)
+			index = self.index(row,1)
+			value = QtCore.QVariant(value)
+			self.setData(index,value)
 			return True
 		return False
 	

@@ -21,22 +21,3 @@ class PopVar(QtGui.QDialog):
 
 		self.ventana.buttonBox.connect(self.ventana.buttonBox, SIGNAL("accepted()"),self, SLOT("accept()"))
 		self.ventana.buttonBox.connect(self.ventana.buttonBox, SIGNAL("rejected()"),self, SLOT("reject()"))
-		self.ventana.comboBox.connect(self.ventana.comboBox,SIGNAL("currentIndexChanged(QString)"),self,SLOT("deshabil()"))
-
-	@pyqtSlot()
-	def deshabil(self):
-		tipo=self.ventana.comboBox.currentText()
-		if tipo == "CONSTANTE":
-			self.ventana.parVar.setEnabled(0)
-			self.ventana.pondVar.setEnabled(0)
-			self.ventana.valorVar.setEnabled(1)
-			self.ventana.label_4.setEnabled(1)
-			self.ventana.label_3.setEnabled(0)
-			self.ventana.label_7.setEnabled(0)
-		else:
-			self.ventana.parVar.setEnabled(1)
-			self.ventana.pondVar.setEnabled(1)
-			self.ventana.valorVar.setEnabled(0)
-			self.ventana.label_4.setEnabled(0)
-			self.ventana.label_3.setEnabled(1)
-			self.ventana.label_7.setEnabled(1)

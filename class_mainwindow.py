@@ -11,6 +11,7 @@ from ui_mainwindow import Ui_MainWindow
 from class_agregarEval import *
 from class_agregarVar import *
 from class_core import *
+from class_ayuda import *
 
 # Se hereda de la clase QtGui.QMainWindow
 class Principal(QtGui.QMainWindow):
@@ -40,7 +41,12 @@ class Principal(QtGui.QMainWindow):
 		ui.actionCargar.connect(ui.actionCargar, SIGNAL("triggered()"),self, SLOT("cargar()"))
 		ui.actionGuardar.connect(ui.actionGuardar, SIGNAL("triggered()"),self, SLOT("guardar()"))
 		ui.actionGuardar_plantilla.connect(ui.actionGuardar_plantilla, SIGNAL("triggered()"),self, SLOT("guardarPlantilla()"))
-		
+
+
+	def on_actionGeneralGeneral_triggered(self):
+		self.ayuda = PopAyuda("generalGeneral")
+		self.ayuda.show()
+	
 	def generar(self,nombre):
 		row = self.model2.getVar(nombre)
 		if row == 0:

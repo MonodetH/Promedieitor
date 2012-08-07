@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>457</width>
-    <height>556</height>
+    <width>531</width>
+    <height>575</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -37,7 +37,7 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>441</width>
+      <width>511</width>
       <height>511</height>
      </rect>
     </property>
@@ -59,62 +59,6 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="3">
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>180</width>
-           <height>10</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_4">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>65</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Promedio</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="text">
-          <string>Reset</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </item>
      <item row="3" column="2">
       <spacer name="horizontalSpacer_3">
        <property name="orientation">
@@ -122,7 +66,7 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>74</width>
+         <width>122</width>
          <height>20</height>
         </size>
        </property>
@@ -132,6 +76,9 @@
       <widget class="QTableView" name="tableView_2">
        <attribute name="horizontalHeaderCascadingSectionResizes">
         <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>98</number>
        </attribute>
        <attribute name="verticalHeaderVisible">
         <bool>false</bool>
@@ -179,12 +126,68 @@
         </size>
        </property>
        <attribute name="horizontalHeaderDefaultSectionSize">
-        <number>105</number>
+        <number>106</number>
        </attribute>
        <attribute name="verticalHeaderVisible">
         <bool>false</bool>
        </attribute>
       </widget>
+     </item>
+     <item row="0" column="3">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="pushButton_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>65</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Promedio</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="text">
+          <string>Reset</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>200</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
@@ -197,7 +200,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>457</width>
+     <width>531</width>
      <height>25</height>
     </rect>
    </property>
@@ -208,7 +211,7 @@
     <property name="title">
      <string>Ayuda</string>
     </property>
-    <widget class="QMenu" name="menuAbout">
+    <widget class="QMenu" name="menuManual">
      <property name="title">
       <string>Manual</string>
      </property>
@@ -220,28 +223,36 @@
        <property name="title">
         <string>Tipos</string>
        </property>
-       <addaction name="actionGeneral_4"/>
+       <addaction name="actionGeneralTipos"/>
        <addaction name="separator"/>
-       <addaction name="actionCONSTANTE"/>
-       <addaction name="actionSUMA"/>
-       <addaction name="actionPRODUCTO"/>
+       <addaction name="actionALGEBRAICA"/>
        <addaction name="actionPROMEDIO"/>
-       <addaction name="actionCONDICION"/>
+       <addaction name="actionCONDICIONAL"/>
       </widget>
-      <addaction name="actionGeneral_3"/>
+      <addaction name="actionGeneralVariables"/>
       <addaction name="separator"/>
-      <addaction name="actionPonderaci_n"/>
+      <addaction name="actionNF"/>
+      <addaction name="actionPonderacion"/>
       <addaction name="menuTipos"/>
      </widget>
-     <addaction name="actionGeneral_2"/>
+     <addaction name="actionGeneralGeneral"/>
      <addaction name="separator"/>
-     <addaction name="actionEvaluaciones_2"/>
+     <addaction name="actionEvaluaciones"/>
      <addaction name="menuVariables"/>
     </widget>
-    <addaction name="menuAbout"/>
+    <addaction name="menuManual"/>
     <addaction name="separator"/>
-    <addaction name="actionAbout_2"/>
+    <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="actionCargar"/>
+    <addaction name="actionGuardar_2"/>
+    <addaction name="actionGuardar_plantilla"/>
+   </widget>
+   <addaction name="menuArchivo"/>
    <addaction name="menuAyuda"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -254,15 +265,13 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionCargar"/>
+   <addaction name="actionGuardar"/>
+   <addaction name="actionGuardar_plantilla"/>
   </widget>
-  <action name="actionGeneral">
+  <action name="actionGeneralGeneral">
    <property name="text">
     <string>General</string>
-   </property>
-  </action>
-  <action name="actionGenera">
-   <property name="text">
-    <string>Variables</string>
    </property>
   </action>
   <action name="actionEvaluaciones">
@@ -270,49 +279,29 @@
     <string>Evaluaciones</string>
    </property>
   </action>
-  <action name="actionGeneral_2">
-   <property name="text">
-    <string>General</string>
-   </property>
-  </action>
-  <action name="actionEvaluaciones_2">
-   <property name="text">
-    <string>Evaluaciones</string>
-   </property>
-  </action>
-  <action name="actionAbout_2">
+  <action name="actionAbout">
    <property name="text">
     <string>About</string>
    </property>
   </action>
-  <action name="actionGeneral_3">
+  <action name="actionGeneralVariables">
    <property name="text">
     <string>General</string>
    </property>
   </action>
-  <action name="actionPonderaci_n">
+  <action name="actionPonderacion">
    <property name="text">
     <string>Ponderación</string>
    </property>
   </action>
-  <action name="actionGeneral_4">
+  <action name="actionGeneralTipos">
    <property name="text">
     <string>General</string>
    </property>
   </action>
-  <action name="actionCONSTANTE">
+  <action name="actionALGEBRAICA">
    <property name="text">
-    <string>CONSTANTE</string>
-   </property>
-  </action>
-  <action name="actionSUMA">
-   <property name="text">
-    <string>SUMA</string>
-   </property>
-  </action>
-  <action name="actionPRODUCTO">
-   <property name="text">
-    <string>PRODUCTO</string>
+    <string>ALGEBRAICA</string>
    </property>
   </action>
   <action name="actionPROMEDIO">
@@ -320,13 +309,48 @@
     <string>PROMEDIO</string>
    </property>
   </action>
-  <action name="actionCONDICION">
+  <action name="actionCONDICIONAL">
    <property name="text">
-    <string>CONDICION</string>
+    <string>CONDICIONAL</string>
+   </property>
+  </action>
+  <action name="actionCargar">
+   <property name="text">
+    <string>Abrir archivo</string>
+   </property>
+  </action>
+  <action name="actionGuardar">
+   <property name="text">
+    <string>Guardar</string>
+   </property>
+  </action>
+  <action name="actionGuardar_plantilla">
+   <property name="text">
+    <string>Guardar plantilla</string>
+   </property>
+  </action>
+  <action name="actionNF">
+   <property name="text">
+    <string>NF</string>
+   </property>
+  </action>
+  <action name="actionGuardar_2">
+   <property name="text">
+    <string>Guardar</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>pushButton</tabstop>
+  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton_4</tabstop>
+  <tabstop>pushButton_3</tabstop>
+  <tabstop>tableView</tabstop>
+  <tabstop>tableView_2</tabstop>
+  <tabstop>toolButton</tabstop>
+  <tabstop>toolButton_2</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

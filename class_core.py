@@ -56,6 +56,12 @@ class EvalTableModel(QtCore.QAbstractTableModel):
 			if row[0] == nombre:
 				return int(row[1])
 		return 0
+	
+	def printRow(self, row):
+		return str(self.__datos[row][0]) + "|" + str(self.__datos[row][1])
+		
+	def printRowP(self, row):
+		return str(self.__datos[row][0]) + "|0" 
 
 
     #=====================================================#
@@ -88,6 +94,10 @@ class VarTableModel(QtCore.QAbstractTableModel):
 		return len(self.__datos[0])
 
 	def flags(self, index):
+		if index.row() == 0 and index.column() == 0:
+			return QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable
+		elif index.column() == 1:
+			return QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable
 		return QtCore.Qt.ItemIsEditable | QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable
 
 	def data(self, index, role):
@@ -150,7 +160,10 @@ class VarTableModel(QtCore.QAbstractTableModel):
 			if row[0] == nombre:
 				return i
 		return None
-		
+	
+	def printRow(self, row):
+		return str(self.__datos[row][0]) + "|0|" + str(self.__datos[row][2]) + "|" +\
+		str(self.__datos[row][3]) + "|" + str(self.__datos[row][4])
 		
     #=====================================================#
     #INSERTING & REMOVING

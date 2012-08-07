@@ -13,19 +13,6 @@
   <property name="windowTitle">
    <string>Agregar Variable</string>
   </property>
-  <widget class="QTextEdit" name="parVar">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>130</y>
-     <width>231</width>
-     <height>101</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
@@ -167,7 +154,25 @@
     <string>?</string>
    </property>
   </widget>
+  <widget class="QPlainTextEdit" name="parVar">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>130</y>
+     <width>231</width>
+     <height>111</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>nomVar</tabstop>
+  <tabstop>comboBox</tabstop>
+  <tabstop>pondVar</tabstop>
+  <tabstop>parVar</tabstop>
+  <tabstop>buttonBox</tabstop>
+  <tabstop>toolButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

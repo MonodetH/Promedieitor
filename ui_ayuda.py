@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ayuda.ui'
 #
-# Created: Sat Aug  4 23:55:04 2012
+# Created: Mon Aug  6 18:20:19 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,19 +17,20 @@ except AttributeError:
 class Ui_Ayuda(object):
     def setupUi(self, Ayuda):
         Ayuda.setObjectName(_fromUtf8("Ayuda"))
-        Ayuda.resize(302, 349)
+        Ayuda.resize(379, 472)
         self.textEdit = QtGui.QTextEdit(Ayuda)
         self.textEdit.setEnabled(True)
-        self.textEdit.setGeometry(QtCore.QRect(10, 10, 281, 301))
+        self.textEdit.setGeometry(QtCore.QRect(10, 10, 361, 421))
         self.textEdit.setReadOnly(True)
         self.textEdit.setObjectName(_fromUtf8("textEdit"))
         self.buttonBox = QtGui.QDialogButtonBox(Ayuda)
-        self.buttonBox.setGeometry(QtCore.QRect(220, 320, 71, 23))
+        self.buttonBox.setGeometry(QtCore.QRect(300, 440, 71, 23))
         self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
 
         self.retranslateUi(Ayuda)
         QtCore.QMetaObject.connectSlotsByName(Ayuda)
+        Ayuda.setTabOrder(self.buttonBox, self.textEdit)
 
     def retranslateUi(self, Ayuda):
         Ayuda.setWindowTitle(QtGui.QApplication.translate("Ayuda", "Ayuda", None, QtGui.QApplication.UnicodeUTF8))

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>302</width>
-    <height>349</height>
+    <width>379</width>
+    <height>472</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,8 +21,8 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>281</width>
-     <height>301</height>
+     <width>361</width>
+     <height>421</height>
     </rect>
    </property>
    <property name="readOnly">
@@ -40,8 +40,8 @@ p, li { white-space: pre-wrap; }
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>320</y>
+     <x>300</x>
+     <y>440</y>
      <width>71</width>
      <height>23</height>
     </rect>
@@ -51,6 +51,10 @@ p, li { white-space: pre-wrap; }
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>buttonBox</tabstop>
+  <tabstop>textEdit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

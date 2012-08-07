@@ -20,18 +20,26 @@ class Principal(QtGui.QMainWindow):
 		QtGui.QMainWindow.__init__(self)
 		# Se crea la instancia de Ui_MainWindow
 		self.ventana = Ui_MainWindow()
-		self.ventana.setupUi(self)
+		
+		self.version = "0.5.0"
+		self.name = "Promedieitor"
+		
+		ui = self.ventana
+		ui.setupUi(self)
         
 		self.model1 = EvalTableModel([["EDITAME","0"]])
-		self.ventana.tableView.setModel(self.model1)
+		ui.tableView.setModel(self.model1)
 
 		self.model2 = VarTableModel([["NF","0","ALGEBRAICA","EDITAME","1.0"]])
-		self.ventana.tableView_2.setModel(self.model2)
+		ui.tableView_2.setModel(self.model2)
 
-		self.ventana.pushButton.connect(self.ventana.pushButton, SIGNAL("clicked()"),self, SLOT("addEval()"))
-		self.ventana.pushButton_2.connect(self.ventana.pushButton_2, SIGNAL("clicked()"),self, SLOT("addVar()"))
-		self.ventana.pushButton_3.connect(self.ventana.pushButton_3, SIGNAL("clicked()"),self, SLOT("resetAll()"))
-		self.ventana.pushButton_4.connect(self.ventana.pushButton_4, SIGNAL("clicked()"),self, SLOT("generarNF()"))
+		ui.pushButton.connect(ui.pushButton, SIGNAL("clicked()"),self, SLOT("addEval()"))
+		ui.pushButton_2.connect(ui.pushButton_2, SIGNAL("clicked()"),self, SLOT("addVar()"))
+		ui.pushButton_3.connect(ui.pushButton_3, SIGNAL("clicked()"),self, SLOT("resetAll()"))
+		ui.pushButton_4.connect(ui.pushButton_4, SIGNAL("clicked()"),self, SLOT("generarNF()"))
+		ui.actionCargar.connect(ui.actionCargar, SIGNAL("triggered()"),self, SLOT("cargar()"))
+		ui.actionGuardar.connect(ui.actionGuardar, SIGNAL("triggered()"),self, SLOT("guardar()"))
+		ui.actionGuardar_plantilla.connect(ui.actionGuardar_plantilla, SIGNAL("triggered()"),self, SLOT("guardarPlantilla()"))
 		
 	def generar(self,nombre):
 		row = self.model2.getVar(nombre)
@@ -168,7 +176,71 @@ class Principal(QtGui.QMainWindow):
 			ubica = self.model2.ubicaNombre(nombre)
 			self.model2.setValor(ubica, nota)
 			return nota
+		else:
+			nota = 0
+			ubica = self.model2.ubicaNombre(nombre)
+			self.model2.setValor(ubica, nota)
+			return nota
 	
+	@pyqtSlot()
+	def cargar(self):
+		filename = QtGui.QFileDialog.getOpenFileName(self, 'Open File', 'Archivo.ptf','Promedieitor Template (*.ptf);; All Files (*.*)')
+		if str(filename) == '':
+			pass
+		else:
+			f = open(filename, 'rbU')
+			header = f.readline()
+			header = [x.strip() for x in header.split(' ')]
+			if header[1] != self.name:
+				return False
+			if header[2][:2] == "0.":
+				data = f.readline()
+				data = [x.strip() for x in data.split('&')]
+				data = data[:len(data)-1]				
+				for i in range(len(data)):
+					data[i] = [x.strip() for x in data[i].split('|')]
+				self.model1 = EvalTableModel(data)
+				self.ventana.tableView.setModel(self.model1)
+				
+				data = f.readline()
+				data = [x.strip() for x in data.split('&')]
+				data = data[:len(data)-1]				
+				for i in range(len(data)):
+					data[i] = [x.strip() for x in data[i].split('|')]
+				self.model2 = VarTableModel(data)
+				self.ventana.tableView_2.setModel(self.model2)
+						
+			
+	
+	@pyqtSlot()
+	def guardar(self):
+		filename = QtGui.QFileDialog.getSaveFileName(self, 'Save File', 'Archivo.ptf','Promedieitor Template (*.ptf);; All Files (*.*)')
+		if str(filename) == '':
+			pass
+		else:
+			f = open(filename, 'wb')
+			f.write("<!# " + self.name + " " + self.version + " #!>\n")
+			for i in range(self.model1.rowCount()):
+				f.write(self.model1.printRow(i)+"&")
+			f.write("\n")
+			for i in range(self.model2.rowCount()):
+				f.write(self.model2.printRow(i)+"&")
+			f.close() 
+	
+	@pyqtSlot()
+	def guardarPlantilla(self):
+		filename = QtGui.QFileDialog.getSaveFileName(self, 'Save File', 'Plantilla.ptf','Promedieitor Template (*.ptf);; All Files(*.*)')
+		if str(filename) == '':
+			pass
+		else:
+			f = open(filename, 'wb')
+			f.write("<!# " + self.name + " " + self.version + " #!>\n")
+			for i in range(self.model1.rowCount()):
+				f.write(self.model1.printRowP(i)+"&")
+			f.write("\n")
+			for i in range(self.model2.rowCount()):
+				f.write(self.model2.printRow(i)+"&")
+			f.close() 
 	
 	@pyqtSlot()
 	def addEval(self):
@@ -192,7 +264,7 @@ class Principal(QtGui.QMainWindow):
 		self.model1 = EvalTableModel([["EDITAME","0"]])
 		self.ventana.tableView.setModel(self.model1)
 		
-		self.model2 = VarTableModel([["NF","0","SUMA","EDITAME","1.0"]])
+		self.model2 = VarTableModel([["NF","0","ALGEBRAICA","EDITAME","1.0"]])
 		self.ventana.tableView_2.setModel(self.model2)
 		
 	@pyqtSlot()

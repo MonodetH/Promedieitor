@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'agregarEval.ui'
 #
-# Created: Fri Aug  3 22:07:42 2012
+# Created: Mon Aug  6 18:19:47 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -39,6 +39,8 @@ class Ui_AgreEval(object):
 
         self.retranslateUi(AgreEval)
         QtCore.QMetaObject.connectSlotsByName(AgreEval)
+        AgreEval.setTabOrder(self.lineEdit, self.spinBox)
+        AgreEval.setTabOrder(self.spinBox, self.buttonBox)
 
     def retranslateUi(self, AgreEval):
         AgreEval.setWindowTitle(QtGui.QApplication.translate("AgreEval", "Agregar Evaluación", None, QtGui.QApplication.UnicodeUTF8))

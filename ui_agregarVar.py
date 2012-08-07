@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'agregarVar.ui'
 #
-# Created: Sun Aug  5 17:40:40 2012
+# Created: Mon Aug  6 18:20:02 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -18,10 +18,6 @@ class Ui_AgreVar(object):
     def setupUi(self, AgreVar):
         AgreVar.setObjectName(_fromUtf8("AgreVar"))
         AgreVar.resize(251, 280)
-        self.parVar = QtGui.QTextEdit(AgreVar)
-        self.parVar.setEnabled(True)
-        self.parVar.setGeometry(QtCore.QRect(10, 130, 231, 101))
-        self.parVar.setObjectName(_fromUtf8("parVar"))
         self.buttonBox = QtGui.QDialogButtonBox(AgreVar)
         self.buttonBox.setGeometry(QtCore.QRect(90, 250, 156, 23))
         self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
@@ -58,9 +54,17 @@ class Ui_AgreVar(object):
         self.toolButton = QtGui.QToolButton(AgreVar)
         self.toolButton.setGeometry(QtCore.QRect(90, 110, 21, 16))
         self.toolButton.setObjectName(_fromUtf8("toolButton"))
+        self.parVar = QtGui.QPlainTextEdit(AgreVar)
+        self.parVar.setGeometry(QtCore.QRect(10, 130, 231, 111))
+        self.parVar.setObjectName(_fromUtf8("parVar"))
 
         self.retranslateUi(AgreVar)
         QtCore.QMetaObject.connectSlotsByName(AgreVar)
+        AgreVar.setTabOrder(self.nomVar, self.comboBox)
+        AgreVar.setTabOrder(self.comboBox, self.pondVar)
+        AgreVar.setTabOrder(self.pondVar, self.parVar)
+        AgreVar.setTabOrder(self.parVar, self.buttonBox)
+        AgreVar.setTabOrder(self.buttonBox, self.toolButton)
 
     def retranslateUi(self, AgreVar):
         AgreVar.setWindowTitle(QtGui.QApplication.translate("AgreVar", "Agregar Variable", None, QtGui.QApplication.UnicodeUTF8))

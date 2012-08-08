@@ -1,15 +1,29 @@
 Promedieitor
 ============
+Mini Descripción
+----------------
 
 Promedieitor es una calculadora de notas desarrollada en Python 2.7 y Qt
--------------
-*Instalacion*
 
-Por ahora la unica forma de instalar la aplicacion es descargando o clonando el proyecto completo desde <this> pero en breve se empaquetara y distribuira para Windows en .exe
-Se requiere tener python2.7 y el modulo Qt para ejecutarla
+Instalación
+-----------
 
--------------
-*Desarrollo*
+### Windows  
+Ultimo .zip (no instalador) en http://db.tt/ZfNIDhYT
 
-Promedieitor ha sido desarrollada por MonodetH y nikopain. 
-Actualmente esta abierta cualquiera que quiera aportar a su desarrollo
+### Otros  
+Lamentablemente aun no se ha empaquetado para otros SO. 
+Por ahora la unica forma de conseguir Promedieitor es clonando o descargando el repositorio en https://github.com/MonodetH/Promedieitor/
+
+Se requiere tener python2.7 y el modulo [PyQt4](http://www.riverbankcomputing.co.uk/software/pyqt/download) para ejecutarla
+
+Para ejecutar con doble-click
+
+    chmod u+x promedieitor.pyw
+
+
+Desarrollo
+----------
+
+Promedieitor ha sido desarrollada por [MonodetH](https://github.com/MonodetH/) y nikopain.  
+Actualmente esta abierta a quien quiera aportar a su desarrollo

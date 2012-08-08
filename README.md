@@ -9,7 +9,7 @@ Instalación
 -----------
 
 ### Windows  
-Ultimo .zip (no instalador) en http://db.tt/ZfNIDhYT
+Ultimo .zip (no instalador) en http://db.tt/PUbqWopI
 
 ### Otros  
 Lamentablemente aun no se ha empaquetado para otros SO. 

@@ -8,10 +8,10 @@ Promedieitor es una calculadora de notas desarrollada en Python 2.7 y Qt
 Instalacion
 -----------
 
-### Windows #  
+### Windows  
 Ultimo .exe (sin instalador) en http://db.tt/ZfNIDhYT
 
-### Otros #  
+### Otros  
 Lamentablemente aun no se ha empaquetado para otros SO. 
 Por ahora la unica forma de conseguir Promedieitor es clonando o descargando el repositorio en https://github.com/MonodetH/Promedieitor/
 

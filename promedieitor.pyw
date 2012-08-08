@@ -10,6 +10,7 @@ from class_mainwindow import *
 
 def main():
 	app = QtGui.QApplication(sys.argv)
+	app.setStyle("Cleanlooks")
 	principal = Principal()
 	principal.show()
         sys.exit(app.exec_())

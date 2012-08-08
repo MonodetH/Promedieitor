@@ -148,7 +148,7 @@
     </rect>
    </property>
    <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;No olvidar EDITAR&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='width: 300px;' &gt;Se recomienda fervientemente Revisar la seccion de Tipos de Variable que se encuentra en Ayuda-&gt;Variables-&gt;Tipos&lt;br&gt;O simplemente haciendo click en este boton&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="text">
     <string>?</string>

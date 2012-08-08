@@ -8,6 +8,7 @@ from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import SIGNAL, SLOT, pyqtSlot
 import sys
 from ui_agregarVar import Ui_AgreVar
+from class_ayuda import *
 
 # Se hereda de la clase QtGui.QDialog
 class PopVar(QtGui.QDialog):
@@ -21,3 +22,9 @@ class PopVar(QtGui.QDialog):
 
 		self.ventana.buttonBox.connect(self.ventana.buttonBox, SIGNAL("accepted()"),self, SLOT("accept()"))
 		self.ventana.buttonBox.connect(self.ventana.buttonBox, SIGNAL("rejected()"),self, SLOT("reject()"))
+		self.ventana.toolButton.connect(self.ventana.toolButton, SIGNAL("clicked()"),self, SLOT("popAyuda()"))
+	
+	@pyqtSlot()
+	def popAyuda(self):
+		self.ayuda = PopAyuda("generalTipos")
+		self.ayuda.exec_()

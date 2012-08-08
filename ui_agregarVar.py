@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'agregarVar.ui'
 #
-# Created: Mon Aug  6 18:20:02 2012
+# Created: Wed Aug  8 04:51:21 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -75,6 +75,6 @@ class Ui_AgreVar(object):
         self.comboBox.setItemText(0, QtGui.QApplication.translate("AgreVar", "ALGEBRAICA", None, QtGui.QApplication.UnicodeUTF8))
         self.comboBox.setItemText(1, QtGui.QApplication.translate("AgreVar", "PROMEDIO", None, QtGui.QApplication.UnicodeUTF8))
         self.comboBox.setItemText(2, QtGui.QApplication.translate("AgreVar", "CONDICIONAL", None, QtGui.QApplication.UnicodeUTF8))
-        self.toolButton.setToolTip(QtGui.QApplication.translate("AgreVar", "<html><head/><body><p>No olvidar EDITAR</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.toolButton.setToolTip(QtGui.QApplication.translate("AgreVar", "<html><head/><body><p style=\'width: 300px;\' >Se recomienda fervientemente Revisar la seccion de Tipos de Variable que se encuentra en Ayuda->Variables->Tipos<br>O simplemente haciendo click en este boton</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.toolButton.setText(QtGui.QApplication.translate("AgreVar", "?", None, QtGui.QApplication.UnicodeUTF8))
 

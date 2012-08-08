@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Variable CONDICIONAL</h2>
+<p>
+Los parámetros que recibe tiene son de la forma:
+<blockquote><code>
+X , condicion [& [ condicion]] : valor [, ...][; valor_por_defecto]<br><br>
+condicion: { { >|>=|<|<=|==|=|!= }(espacio)Y } 
+</code></blockquote>
+donde X e Y pueden ser Variables, Evaluaciones, enteros o decimales, siendo X la variable principal a la cual comparar e Y una variable con la
+ cual X es comparada.<br> 
+Si el valor por defecto no es especificado, se asume 0<br> 
+a continuación algunos ejemplos:
+<blockquote>
+<code>NS,<= 55:0;NS</code> (reprobación absoluta)<br>
+<code>NS,>= 44 & < 55: NFG; NS</code> (nota con global)<br>
+<code>X, < Y: X, > Y: Y, == Y: X  </code> ( mínimo de X e Y )<br>
+</blockquote>
+</p>
+</body>
+</html>

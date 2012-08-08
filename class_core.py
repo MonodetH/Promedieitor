@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  class_core.py
+#
+
 from PyQt4 import QtGui, QtCore, uic
 from types import *
 import sys

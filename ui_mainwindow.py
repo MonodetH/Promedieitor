@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mainwindow.ui'
 #
-# Created: Tue Aug  7 00:34:20 2012
+# Created: Wed Aug  8 04:44:05 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -114,8 +114,6 @@ class Ui_MainWindow(object):
         self.actionAbout.setObjectName(_fromUtf8("actionAbout"))
         self.actionGeneralVariables = QtGui.QAction(MainWindow)
         self.actionGeneralVariables.setObjectName(_fromUtf8("actionGeneralVariables"))
-        self.actionPonderacion = QtGui.QAction(MainWindow)
-        self.actionPonderacion.setObjectName(_fromUtf8("actionPonderacion"))
         self.actionGeneralTipos = QtGui.QAction(MainWindow)
         self.actionGeneralTipos.setObjectName(_fromUtf8("actionGeneralTipos"))
         self.actionALGEBRAICA = QtGui.QAction(MainWindow)
@@ -132,8 +130,6 @@ class Ui_MainWindow(object):
         self.actionGuardar_plantilla.setObjectName(_fromUtf8("actionGuardar_plantilla"))
         self.actionNF = QtGui.QAction(MainWindow)
         self.actionNF.setObjectName(_fromUtf8("actionNF"))
-        self.actionGuardar_2 = QtGui.QAction(MainWindow)
-        self.actionGuardar_2.setObjectName(_fromUtf8("actionGuardar_2"))
         self.menuTipos.addAction(self.actionGeneralTipos)
         self.menuTipos.addSeparator()
         self.menuTipos.addAction(self.actionALGEBRAICA)
@@ -142,7 +138,6 @@ class Ui_MainWindow(object):
         self.menuVariables.addAction(self.actionGeneralVariables)
         self.menuVariables.addSeparator()
         self.menuVariables.addAction(self.actionNF)
-        self.menuVariables.addAction(self.actionPonderacion)
         self.menuVariables.addAction(self.menuTipos.menuAction())
         self.menuManual.addAction(self.actionGeneralGeneral)
         self.menuManual.addSeparator()
@@ -152,7 +147,7 @@ class Ui_MainWindow(object):
         self.menuAyuda.addSeparator()
         self.menuAyuda.addAction(self.actionAbout)
         self.menuArchivo.addAction(self.actionCargar)
-        self.menuArchivo.addAction(self.actionGuardar_2)
+        self.menuArchivo.addAction(self.actionGuardar)
         self.menuArchivo.addAction(self.actionGuardar_plantilla)
         self.menuBar.addAction(self.menuArchivo.menuAction())
         self.menuBar.addAction(self.menuAyuda.menuAction())
@@ -174,9 +169,29 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Promedieitor", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton.setText(QtGui.QApplication.translate("MainWindow", "Agregar Evaluación", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton_2.setText(QtGui.QApplication.translate("MainWindow", "Agregar Variable", None, QtGui.QApplication.UnicodeUTF8))
-        self.toolButton.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p>No olvidar EDITAR</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.toolButton.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body>\n"
+"<h3>Evaluación</h3>\n"
+"<ul>\n"
+"<li>Nombre: Nombre o preferiblemente abreviación</li>\n"
+"<li>Nota: Valor, entero o decimal de la Evaluación</li>\n"
+"</ul>\n"
+"Dos Evaluaciones no deben tener el mismo nombre, en el caso que así sea solo se considerara la primera dentro de los cálculos\n"
+"</body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.toolButton.setText(QtGui.QApplication.translate("MainWindow", "?", None, QtGui.QApplication.UnicodeUTF8))
-        self.toolButton_2.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p>No olvidar EDITAR</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.toolButton_2.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body>\n"
+"<h3>Variable</h3>\n"
+"<ul>\n"
+"<li>Nombre: al igual que las evaluaciones se prefieren abreviaciones</li>\n"
+"<li>Valor: es el valor que toman luego de ser procesadas</li>\n"
+"<li>Tipo: { ALGEBRAICA|PROMEDIO|CONDICIONAL }</li>\n"
+"<li>Parámetros: Click para mas informacion</li>\n"
+"<li>Ponderación: Es el factor por el cual se multiplicara el resultado de la subrutina, obteniendo luego el valor final</li>\n"
+"</ul>\n"
+"<h4>Variable NF</h4>\n"
+"<p>NF es una variable especial. aquí es donde llega el resultado final luego de ser procesado por Promedieitor\n"
+"por lo que esta PROHIBIDO cambiar su nombre\n"
+"</p>\n"
+"</body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.toolButton_2.setText(QtGui.QApplication.translate("MainWindow", "?", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton_4.setText(QtGui.QApplication.translate("MainWindow", "Promedio", None, QtGui.QApplication.UnicodeUTF8))
         self.pushButton_3.setText(QtGui.QApplication.translate("MainWindow", "Reset", None, QtGui.QApplication.UnicodeUTF8))
@@ -189,7 +204,6 @@ class Ui_MainWindow(object):
         self.actionEvaluaciones.setText(QtGui.QApplication.translate("MainWindow", "Evaluaciones", None, QtGui.QApplication.UnicodeUTF8))
         self.actionAbout.setText(QtGui.QApplication.translate("MainWindow", "About", None, QtGui.QApplication.UnicodeUTF8))
         self.actionGeneralVariables.setText(QtGui.QApplication.translate("MainWindow", "General", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionPonderacion.setText(QtGui.QApplication.translate("MainWindow", "Ponderación", None, QtGui.QApplication.UnicodeUTF8))
         self.actionGeneralTipos.setText(QtGui.QApplication.translate("MainWindow", "General", None, QtGui.QApplication.UnicodeUTF8))
         self.actionALGEBRAICA.setText(QtGui.QApplication.translate("MainWindow", "ALGEBRAICA", None, QtGui.QApplication.UnicodeUTF8))
         self.actionPROMEDIO.setText(QtGui.QApplication.translate("MainWindow", "PROMEDIO", None, QtGui.QApplication.UnicodeUTF8))
@@ -198,5 +212,4 @@ class Ui_MainWindow(object):
         self.actionGuardar.setText(QtGui.QApplication.translate("MainWindow", "Guardar", None, QtGui.QApplication.UnicodeUTF8))
         self.actionGuardar_plantilla.setText(QtGui.QApplication.translate("MainWindow", "Guardar plantilla", None, QtGui.QApplication.UnicodeUTF8))
         self.actionNF.setText(QtGui.QApplication.translate("MainWindow", "NF", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionGuardar_2.setText(QtGui.QApplication.translate("MainWindow", "Guardar", None, QtGui.QApplication.UnicodeUTF8))
 

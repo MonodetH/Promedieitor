@@ -88,7 +88,14 @@
      <item row="3" column="1">
       <widget class="QToolButton" name="toolButton">
        <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;No olvidar EDITAR&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;
+&lt;h3&gt;Evaluación&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Nombre: Nombre o preferiblemente abreviación&lt;/li&gt;
+&lt;li&gt;Nota: Valor, entero o decimal de la Evaluación&lt;/li&gt;
+&lt;/ul&gt;
+Dos Evaluaciones no deben tener el mismo nombre, en el caso que así sea solo se considerara la primera dentro de los cálculos
+&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
         <string>?</string>
@@ -98,7 +105,20 @@
      <item row="15" column="1">
       <widget class="QToolButton" name="toolButton_2">
        <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;No olvidar EDITAR&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;
+&lt;h3&gt;Variable&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Nombre: al igual que las evaluaciones se prefieren abreviaciones&lt;/li&gt;
+&lt;li&gt;Valor: es el valor que toman luego de ser procesadas&lt;/li&gt;
+&lt;li&gt;Tipo: { ALGEBRAICA|PROMEDIO|CONDICIONAL }&lt;/li&gt;
+&lt;li&gt;Parámetros: Click para mas informacion&lt;/li&gt;
+&lt;li&gt;Ponderación: Es el factor por el cual se multiplicara el resultado de la subrutina, obteniendo luego el valor final&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Variable NF&lt;/h4&gt;
+&lt;p&gt;NF es una variable especial. aquí es donde llega el resultado final luego de ser procesado por Promedieitor
+por lo que esta PROHIBIDO cambiar su nombre
+&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
         <string>?</string>
@@ -232,7 +252,6 @@
       <addaction name="actionGeneralVariables"/>
       <addaction name="separator"/>
       <addaction name="actionNF"/>
-      <addaction name="actionPonderacion"/>
       <addaction name="menuTipos"/>
      </widget>
      <addaction name="actionGeneralGeneral"/>
@@ -249,7 +268,7 @@
      <string>Archivo</string>
     </property>
     <addaction name="actionCargar"/>
-    <addaction name="actionGuardar_2"/>
+    <addaction name="actionGuardar"/>
     <addaction name="actionGuardar_plantilla"/>
    </widget>
    <addaction name="menuArchivo"/>
@@ -287,11 +306,6 @@
   <action name="actionGeneralVariables">
    <property name="text">
     <string>General</string>
-   </property>
-  </action>
-  <action name="actionPonderacion">
-   <property name="text">
-    <string>Ponderación</string>
    </property>
   </action>
   <action name="actionGeneralTipos">
@@ -332,11 +346,6 @@
   <action name="actionNF">
    <property name="text">
     <string>NF</string>
-   </property>
-  </action>
-  <action name="actionGuardar_2">
-   <property name="text">
-    <string>Guardar</string>
    </property>
   </action>
  </widget>

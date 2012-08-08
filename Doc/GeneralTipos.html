@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Tipos de Variable</h2>
+<p>Hay tres tipos de variables:
+<ul>
+<li>ALGEBRAICA: Ocupada para hacer cálculos básicos como: suma,resta, multiplicación y diccionario</li>
+<li>PROMEDIO: Calculo algebraico frecuente al sacar promedios: suma_valores/cant_valores</li>
+<li>CONDICIONAL: El tipo mas complejo de Promedieitor, encargado de evaluar condiciones</li>
+</ul>
+</p>
+<h4>Variable ALGEBRAICA</h4>
+<p>
+Los parámetros que recibe son de la forma:
+<blockquote><code>X [ { +|-|*|/ } Y [...]]</code></blockquote>
+donde X e Y pueden ser Variables, Evaluaciones, enteros o decimales. a continuación algunos ejemplos:
+<blockquote>
+<code>2+3</code><br>
+<code>C1 + C2</code><br>
+<code>0.34 * PC - 50   / EX</code><br>
+</blockquote>
+un punto importante a tratar es el orden en que se evalúan los operandos. el orden es * -> / -> + -> - , de la misma forma en que los evalúa
+ un humano.<br> 
+otro punto, aun mas importante es que NO ESTAN PERMITIDOS LOS PARENTESIS de ningún tipo, por lo que se debe reorganizar la ecuación o 
+definir el paréntesis como otra variable<br> 
+Por ultimo recuerda NUNCA escribir partir la ecuación con un negativo cuando solo hay uno en toda la ecuación, por ej: <code>-x + y</code>, 
+en este caso es preferible <code>y - x</code>
+</p>
+<h4>Variable PROMEDIO</h4>
+<p>
+Los parámetros que recibe son de la forma:
+<blockquote><code>X [, Y[, ...]]</code></blockquote>
+donde x e y pueden ser Variables, Evaluaciones, enteros o decimales. a continuación algunos ejemplos:
+<blockquote>
+<code>C1,C2,C3</code><br>
+<code>Lab1 , Lab2</code><br>
+<code>T1, -T2</code><br>
+</blockquote>
+Tan fácil como ves
+</p>
+<h4>Variable CONDICIONAL</h4>
+<p>
+Los parámetros que recibe tiene son de la forma:
+<blockquote><code>
+X , condicion [& [ condicion]] : valor [, ...][; valor_por_defecto]<br><br>
+condicion: { { >|>=|<|<=|==|=|!= }(espacio)Y } 
+</code></blockquote>
+donde X e Y pueden ser Variables, Evaluaciones, enteros o decimales, siendo X la variable principal a la cual comparar e Y una variable con la
+ cual X es comparada.<br> 
+Si el valor por defecto no es especificado, se asume 0<br> 
+a continuación algunos ejemplos:
+<blockquote>
+<code>NS,<= 55:0;NS</code> (reprobación absoluta)<br>
+<code>NS,>= 44 & < 55: NFG; NS</code> (nota con global)<br>
+<code>X, < Y: X, > Y: Y, == Y: X  </code> ( mínimo de X e Y )<br>
+</blockquote>
+Este tipo de variable es un poco mas complicado que el resto, por lo que si aun no entiendes, estas invitado a ver la sección particular
+ del manual
+</p>
+</body>
+</html>

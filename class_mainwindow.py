@@ -22,13 +22,13 @@ class Principal(QtGui.QMainWindow):
 		# Se crea la instancia de Ui_MainWindow
 		self.ventana = Ui_MainWindow()
 		
-		self.version = "0.5.0"
+		self.version = "0.9.2"
 		self.name = "Promedieitor"
 		
 		ui = self.ventana
 		ui.setupUi(self)
         
-		self.model1 = EvalTableModel([["EDITAME","0"]])
+		self.model1 = EvalTableModel([["EDITAME","0.0"]])
 		ui.tableView.setModel(self.model1)
 
 		self.model2 = VarTableModel([["NF","0","ALGEBRAICA","EDITAME","1.0"]])
@@ -41,10 +41,37 @@ class Principal(QtGui.QMainWindow):
 		ui.actionCargar.connect(ui.actionCargar, SIGNAL("triggered()"),self, SLOT("cargar()"))
 		ui.actionGuardar.connect(ui.actionGuardar, SIGNAL("triggered()"),self, SLOT("guardar()"))
 		ui.actionGuardar_plantilla.connect(ui.actionGuardar_plantilla, SIGNAL("triggered()"),self, SLOT("guardarPlantilla()"))
-
+		ui.toolButton.connect(ui.toolButton, SIGNAL("clicked()"), self, SLOT("on_actionEvaluaciones_triggered()"))
+		ui.toolButton_2.connect(ui.toolButton_2, SIGNAL("clicked()"), self, SLOT("on_actionGeneralTipos_triggered()"))
 
 	def on_actionGeneralGeneral_triggered(self):
 		self.ayuda = PopAyuda("generalGeneral")
+		self.ayuda.show()
+	@pyqtSlot()
+	def on_actionEvaluaciones_triggered(self):
+		self.ayuda = PopAyuda("evaluaciones")
+		self.ayuda.show()
+	def on_actionGeneralVariables_triggered(self):
+		self.ayuda = PopAyuda("generalVariables")
+		self.ayuda.show()
+	def on_actionNF_triggered(self):
+		self.ayuda = PopAyuda("NF")
+		self.ayuda.show()
+	@pyqtSlot()
+	def on_actionGeneralTipos_triggered(self):
+		self.ayuda = PopAyuda("generalTipos")
+		self.ayuda.show()
+	def on_actionALGEBRAICA_triggered(self):
+		self.ayuda = PopAyuda("ALGEBRAICA")
+		self.ayuda.show()
+	def on_actionPROMEDIO_triggered(self):
+		self.ayuda = PopAyuda("PROMEDIO")
+		self.ayuda.show()
+	def on_actionCONDICIONAL_triggered(self):
+		self.ayuda = PopAyuda("CONDICIONAL")
+		self.ayuda.show()
+	def on_actionAbout_triggered(self):
+		self.ayuda = PopAyuda("about")
 		self.ayuda.show()
 	
 	def generar(self,nombre):
@@ -267,7 +294,7 @@ class Principal(QtGui.QMainWindow):
 		
 	@pyqtSlot()
 	def resetAll(self):
-		self.model1 = EvalTableModel([["EDITAME","0"]])
+		self.model1 = EvalTableModel([["EDITAME","0.0"]])
 		self.ventana.tableView.setModel(self.model1)
 		
 		self.model2 = VarTableModel([["NF","0","ALGEBRAICA","EDITAME","1.0"]])

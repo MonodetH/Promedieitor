@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'agregarEval.ui'
 #
-# Created: Mon Aug  6 18:19:47 2012
+# Created: Wed Aug  8 02:56:48 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -22,20 +22,20 @@ class Ui_AgreEval(object):
         self.label.setGeometry(QtCore.QRect(10, 10, 151, 16))
         self.label.setObjectName(_fromUtf8("label"))
         self.label_2 = QtGui.QLabel(AgreEval)
-        self.label_2.setGeometry(QtCore.QRect(190, 10, 46, 13))
+        self.label_2.setGeometry(QtCore.QRect(180, 10, 46, 13))
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.buttonBox = QtGui.QDialogButtonBox(AgreEval)
         self.buttonBox.setGeometry(QtCore.QRect(100, 70, 156, 23))
         self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
-        self.spinBox = QtGui.QSpinBox(AgreEval)
-        self.spinBox.setGeometry(QtCore.QRect(190, 30, 71, 21))
-        self.spinBox.setMinimum(0)
-        self.spinBox.setMaximum(100)
-        self.spinBox.setObjectName(_fromUtf8("spinBox"))
         self.lineEdit = QtGui.QLineEdit(AgreEval)
         self.lineEdit.setGeometry(QtCore.QRect(10, 30, 151, 21))
         self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
+        self.spinBox = QtGui.QDoubleSpinBox(AgreEval)
+        self.spinBox.setGeometry(QtCore.QRect(181, 30, 71, 21))
+        self.spinBox.setDecimals(1)
+        self.spinBox.setMaximum(100.0)
+        self.spinBox.setObjectName(_fromUtf8("spinBox"))
 
         self.retranslateUi(AgreEval)
         QtCore.QMetaObject.connectSlotsByName(AgreEval)

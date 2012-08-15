@@ -1,0 +1,3 @@
+<!# Promedieitor 0.9.5 #!>
+C1|0~C2|0~C3|0~CG|0~Q1|0~Q2|0~Q3|0~Q4|0~Q5|0~
+NF|0|CONDICIONAL|NC >= 5 & NQ >= 30 & C1 > 30 & C2 > 30 & C3 > 30 & PreNF >= 55: PreNF , NC >= 5 & NQ >= 30 & PreNF >= 50 & CG >= 55:55;minNCNQ|1.0~PreNF|0|ALGEBRAICA|NC * 0.65 + NQ * 0.35|1.0~minNCNQ|0|CONDICIONAL|NC < NQ : NC ; NQ|1.0~NC|0|PROMEDIO|C1,C2,C3|1.0~NQ|0|PROMEDIO|Q1,Q2,Q3,Q4,Q5|1.0~

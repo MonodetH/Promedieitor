@@ -10,7 +10,9 @@ from class_mainwindow import *
 
 def main():
 	app = QtGui.QApplication(sys.argv)
-	app.setStyle("Cleanlooks")
+	if sys.platform == "win32" or sys.platform == "cygwin":
+		app.setStyle("Cleanlooks")
+	sys.setrecursionlimit(5000)
 	principal = Principal()
 	principal.show()
         sys.exit(app.exec_())

@@ -22,7 +22,7 @@ class Principal(QtGui.QMainWindow):
 		# Se crea la instancia de Ui_MainWindow
 		self.ventana = Ui_MainWindow()
 		
-		self.version = "0.9.2"
+		self.version = "0.9.5"
 		self.name = "Promedieitor"
 		
 		ui = self.ventana
@@ -138,8 +138,6 @@ class Principal(QtGui.QMainWindow):
 			defecto = 0
 			if len(param) == 2:
 				defecto = self.generar(param[1])
-			var = self.generar(cond[0])
-			cond = cond[1:]
 			
 			for i in range(len(cond)):
 				cond[i] = [x.strip() for x in str(cond[i]).split(':')]
@@ -150,8 +148,9 @@ class Principal(QtGui.QMainWindow):
 			for i in range(len(cond)):
 				flag = len(cond[i][0])
 				for j in range(len(cond[i][0])):
-					if cond[i][0][j][0] == '>':
-						if var > self.generar(cond[i][0][j][1]):
+					var = self.generar(cond[i][0][j][0])
+					if cond[i][0][j][1] == '>':
+						if var > self.generar(cond[i][0][j][2]):
 							flag -= 1
 							if flag == 0:
 								retorno = self.generar(cond[i][1])
@@ -159,8 +158,8 @@ class Principal(QtGui.QMainWindow):
 								ubica = self.model2.ubicaNombre(nombre)
 								self.model2.setValor(ubica, nota)
 								return nota
-					elif cond[i][0][j][0] == '>=':
-						if var >= self.generar(cond[i][0][j][1]):
+					elif cond[i][0][j][1] == '>=':
+						if var >= self.generar(cond[i][0][j][2]):
 							flag -= 1
 							if flag == 0:
 								retorno = self.generar(cond[i][1])
@@ -168,8 +167,8 @@ class Principal(QtGui.QMainWindow):
 								ubica = self.model2.ubicaNombre(nombre)
 								self.model2.setValor(ubica, nota)
 								return nota
-					elif cond[i][0][j][0] == '<':
-						if var < self.generar(cond[i][0][j][1]):
+					elif cond[i][0][j][1] == '<':
+						if var < self.generar(cond[i][0][j][2]):
 							flag -= 1
 							if flag == 0:
 								retorno = self.generar(cond[i][1])
@@ -177,8 +176,8 @@ class Principal(QtGui.QMainWindow):
 								ubica = self.model2.ubicaNombre(nombre)
 								self.model2.setValor(ubica, nota)
 								return nota
-					elif cond[i][0][j][0] == '<=':
-						if var <= self.generar(cond[i][0][j][1]):
+					elif cond[i][0][j][1] == '<=':
+						if var <= self.generar(cond[i][0][j][2]):
 							flag -= 1
 							if flag == 0:
 								retorno = self.generar(cond[i][1])
@@ -186,8 +185,8 @@ class Principal(QtGui.QMainWindow):
 								ubica = self.model2.ubicaNombre(nombre)
 								self.model2.setValor(ubica, nota)
 								return nota
-					elif cond[i][0][j][0] == '=' or cond[i][0][0][0] == '==':
-						if var == self.generar(cond[i][0][j][1]):
+					elif cond[i][0][j][1] == '=' or cond[i][0][0][0] == '==':
+						if var == self.generar(cond[i][0][j][2]):
 							flag -= 1
 							if flag == 0:
 								retorno = self.generar(cond[i][1])
@@ -195,8 +194,8 @@ class Principal(QtGui.QMainWindow):
 								ubica = self.model2.ubicaNombre(nombre)
 								self.model2.setValor(ubica, nota)
 								return nota
-					elif cond[i][0][j][0] == '!=':
-						if var != self.generar(cond[i][0][j][1]):
+					elif cond[i][0][j][1] == '!=':
+						if var != self.generar(cond[i][0][j][2]):
 							flag -= 1
 							if flag == 0:
 								retorno = self.generar(cond[i][1])
@@ -217,7 +216,7 @@ class Principal(QtGui.QMainWindow):
 	
 	@pyqtSlot()
 	def cargar(self):
-		filename = QtGui.QFileDialog.getOpenFileName(self, 'Open File', 'Archivo.ptf','Promedieitor Template (*.ptf);; All Files (*.*)')
+		filename = QtGui.QFileDialog.getOpenFileName(self, 'Open File', '','Promedieitor Template (*.ptf);; All Files (*.*)')
 		if str(filename) == '':
 			pass
 		else:
@@ -225,10 +224,11 @@ class Principal(QtGui.QMainWindow):
 			header = f.readline()
 			header = [x.strip() for x in header.split(' ')]
 			if header[1] != self.name:
+				QtGui.QMessageBox.warning(self,"Warning","Archivo no soportado")
 				return False
-			if header[2][:2] == "0.":
+			if header[2] == "0.9.5":
 				data = f.readline()
-				data = [x.strip() for x in data.split('&')]
+				data = [x.strip() for x in data.split('~')]
 				data = data[:len(data)-1]				
 				for i in range(len(data)):
 					data[i] = [x.strip() for x in data[i].split('|')]
@@ -236,13 +236,14 @@ class Principal(QtGui.QMainWindow):
 				self.ventana.tableView.setModel(self.model1)
 				
 				data = f.readline()
-				data = [x.strip() for x in data.split('&')]
+				data = [x.strip() for x in data.split('~')]
 				data = data[:len(data)-1]				
 				for i in range(len(data)):
 					data[i] = [x.strip() for x in data[i].split('|')]
 				self.model2 = VarTableModel(data)
 				self.ventana.tableView_2.setModel(self.model2)
-						
+			else:
+				QtGui.QMessageBox.warning(self,"Warning","Version de plantilla no soportada")
 			
 	
 	@pyqtSlot()
@@ -254,10 +255,12 @@ class Principal(QtGui.QMainWindow):
 			f = open(filename, 'wb')
 			f.write("<!# " + self.name + " " + self.version + " #!>\n")
 			for i in range(self.model1.rowCount()):
-				f.write(self.model1.printRow(i)+"&")
+				if self.model1.getName(i).strip() != "": 
+					f.write(self.model1.printRow(i)+"~")
 			f.write("\n")
 			for i in range(self.model2.rowCount()):
-				f.write(self.model2.printRow(i)+"&")
+				if self.model2.getName(i).strip() != "": 
+					f.write(self.model2.printRow(i)+"~")
 			f.close() 
 	
 	@pyqtSlot()
@@ -269,10 +272,12 @@ class Principal(QtGui.QMainWindow):
 			f = open(filename, 'wb')
 			f.write("<!# " + self.name + " " + self.version + " #!>\n")
 			for i in range(self.model1.rowCount()):
-				f.write(self.model1.printRowP(i)+"&")
+				if self.model1.getName(i).strip() != "": 
+					f.write(self.model1.printRowP(i)+"~")
 			f.write("\n")
 			for i in range(self.model2.rowCount()):
-				f.write(self.model2.printRow(i)+"&")
+				if self.model2.getName(i).strip() != "":
+					f.write(self.model2.printRow(i)+"~")
 			f.close() 
 	
 	@pyqtSlot()

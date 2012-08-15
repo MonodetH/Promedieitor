@@ -42,20 +42,18 @@ Tan fácil como ves
 <p>
 Los parámetros que recibe tiene son de la forma:
 <blockquote><code>
-X , condicion [& [ condicion]] : valor [, ...][; valor_por_defecto]<br><br>
-condicion: { { >|>=|<|<=|==|=|!= }(espacio)Y } 
+condicion [&amp; [ condicion]] : valor [, ...][; valor_por_defecto]<br><br>
+condicion:<br>{ X(espacio){ >|>=|&lt;|&lt;=|==|=|!= }(espacio)Y } 
 </code></blockquote>
-donde X e Y pueden ser Variables, Evaluaciones, enteros o decimales, siendo X la variable principal a la cual comparar e Y una variable con la
- cual X es comparada.<br> 
+donde X e Y pueden ser Variables, Evaluaciones, enteros o decimales, siendo ambas (X e Y) las 'variables' comparadas<br> 
 Si el valor por defecto no es especificado, se asume 0<br> 
 a continuación algunos ejemplos:
 <blockquote>
-<code>NS,<= 55:0;NS</code> (reprobación absoluta)<br>
-<code>NS,>= 44 & < 55: NFG; NS</code> (nota con global)<br>
-<code>X, < Y: X, > Y: Y, == Y: X  </code> ( mínimo de X e Y )<br>
+<code>NS &lt;= 55:0;NS</code> (reprobación absoluta)<br>
+<code>NS >= 44 &amp; NS &lt; 55: NFG; NS</code> (nota con global)<br>
+<code>X &lt; Y: X, X > Y: Y, X == Y: X  </code> ( mínimo de X e Y )<br>
+<code>X &lt; Y: X; Y </code> ( mínimo de X e Y (compacto))<br>
 </blockquote>
-Este tipo de variable es un poco mas complicado que el resto, por lo que si aun no entiendes, estas invitado a ver la sección particular
- del manual
 </p>
 </body>
 </html>

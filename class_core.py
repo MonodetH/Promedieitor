@@ -60,7 +60,7 @@ class EvalTableModel(QtCore.QAbstractTableModel):
 		for i in range(self.rowCount()):
 			row = self.__datos[i]
 			if row[0] == nombre:
-				return int(row[1])
+				return float(row[1])
 		return 0
 	
 	def printRow(self, row):
@@ -68,6 +68,9 @@ class EvalTableModel(QtCore.QAbstractTableModel):
 		
 	def printRowP(self, row):
 		return str(self.__datos[row][0]) + "|0" 
+	
+	def getName(self, row):
+		return str(self.__datos[row][0])
 
 
     #=====================================================#
@@ -170,6 +173,9 @@ class VarTableModel(QtCore.QAbstractTableModel):
 	def printRow(self, row):
 		return str(self.__datos[row][0]) + "|0|" + str(self.__datos[row][2]) + "|" +\
 		str(self.__datos[row][3]) + "|" + str(self.__datos[row][4])
+		
+	def getName(self, row):
+		return str(self.__datos[row][0])
 		
     #=====================================================#
     #INSERTING & REMOVING
